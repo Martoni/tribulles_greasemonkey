@@ -10,8 +10,9 @@
 
 var CANALBD_URL = "http://www.canalbd.net/tribulles_catalogue_serieoccas_";
 
-// trouvé sur http://www.finalclap.com/faq/257-javascript-supprimer-remplacer-accent
 String.prototype.normalise = function(){
+		// remplacement des accents
+		// trouvé sur http://www.finalclap.com/faq/257-javascript-supprimer-remplacer-accent
     var accent = [
         /[\300-\306]/g, /[\340-\346]/g, // A, a
         /[\310-\313]/g, /[\350-\353]/g, // E, e
@@ -27,9 +28,20 @@ String.prototype.normalise = function(){
     for(var i = 0; i < accent.length; i++){
         str = str.replace(accent[i], noaccent[i]);
     }
+
+		article = str.match(/\((.*?)\)/);
+		if(article){
+			article = article[1].replace(/'/, "");
+			str = article + "-" + str.replace(/ \(.*?\)/, "");
+		}
+
+		// autres caractères à normaliser
     str = str.replace(/ /g, "-");
-    str = str.replace(/''/g, "-");
-    str = str.replace(/\./g, "-");
+    str = str.replace(/'/g, "-");
+    str = str.replace(/\./g, "");
+
+		// remettre devant ce qui est entre parenthèse
+
     str = CANALBD_URL + str;
     return str;
 }
