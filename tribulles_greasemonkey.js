@@ -8,7 +8,7 @@
 // @grant       none
 // ==/UserScript==
 
-// trouver sur http://www.finalclap.com/faq/257-javascript-supprimer-remplacer-accent
+// trouvé sur http://www.finalclap.com/faq/257-javascript-supprimer-remplacer-accent
 String.prototype.sansAccent = function(){
     var accent = [
         /[\300-\306]/g, /[\340-\346]/g, // A, a
@@ -27,6 +27,7 @@ String.prototype.sansAccent = function(){
     }
     str = str.replace(/ /g, "-");
     str = str.replace(/''/g, "-");
+    str = str.replace(/./g, "-");
     str = "http://www.canalbd.net/tribulles_catalogue_serieoccas_" + str;
     return str;
 }
