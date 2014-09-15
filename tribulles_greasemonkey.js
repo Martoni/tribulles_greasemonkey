@@ -9,7 +9,7 @@
 // ==/UserScript==
 
 // trouvé sur http://www.finalclap.com/faq/257-javascript-supprimer-remplacer-accent
-String.prototype.sansAccent = function(){
+String.prototype.normalise = function(){
     var accent = [
         /[\300-\306]/g, /[\340-\346]/g, // A, a
         /[\310-\313]/g, /[\350-\353]/g, // E, e
@@ -27,7 +27,7 @@ String.prototype.sansAccent = function(){
     }
     str = str.replace(/ /g, "-");
     str = str.replace(/''/g, "-");
-    str = str.replace(/./g, "-");
+    str = str.replace(/\./g, "-");
     str = "http://www.canalbd.net/tribulles_catalogue_serieoccas_" + str;
     return str;
 }
@@ -38,6 +38,6 @@ var teair = mytable.getElementsByTagName('tr');
 for(var i=0; i < teair.length; i++)
 {
     var tede = teair[i].getElementsByTagName('td');
-    tede[0].innerHTML = tede[0].innerHTML + " - (<a href=\"" + tede[0].textContent.sansAccent() + "--Albums\"> Occasion </a>)";
+    tede[0].innerHTML = tede[0].innerHTML + " - (<a href=\"" + tede[0].textContent.normalise() + "--Albums\"> Occasion </a>)";
 }
 
