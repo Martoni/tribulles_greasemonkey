@@ -8,6 +8,8 @@
 // @grant       none
 // ==/UserScript==
 
+var CANALBD_URL = "http://www.canalbd.net/tribulles_catalogue_serieoccas_";
+
 // trouvé sur http://www.finalclap.com/faq/257-javascript-supprimer-remplacer-accent
 String.prototype.normalise = function(){
     var accent = [
@@ -28,7 +30,7 @@ String.prototype.normalise = function(){
     str = str.replace(/ /g, "-");
     str = str.replace(/''/g, "-");
     str = str.replace(/\./g, "-");
-    str = "http://www.canalbd.net/tribulles_catalogue_serieoccas_" + str;
+    str = CANALBD_URL + str;
     return str;
 }
 
