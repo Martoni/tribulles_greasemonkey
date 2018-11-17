@@ -3,7 +3,7 @@
 // @namespace   photogallery
 // @description Adding an arrow when visiualize photo in a list 
 // @include     http://raspberrypi.local:8000/Photos/*.JPG
-// @version     1.01
+// @version     1
 // @require  http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js
 // @grant       none
 // ==/UserScript==
@@ -75,6 +75,6 @@ if(file_found < photos_names.length-1){
   document.body.appendChild(next_div);
 }
 
-addGlobalStyle("#idnext { float:right; background-color:silver;}")
-addGlobalStyle("#idprev { float:left; background-color:silver;}")
+addGlobalStyle("#idnext { float:right; background-color:silver; position:relative;z-index:10;}")
+addGlobalStyle("#idprev { float:left; background-color:silver; position:relative;z-index:10;}")
 
