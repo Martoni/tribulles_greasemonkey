@@ -2,7 +2,10 @@
 // @name        photogallery 
 // @namespace   photogallery
 // @description Adding an arrow when visiualize photo in a list 
-// @include     http://raspberrypi.local:8000/Photos/*.JPG
+// @include     http://raspberrypi.local:8000/*.JPG
+// @include     http://raspberrypi.local:8000/*.jpg
+// @include     http://raspberrypi.local:8000/*.PNG
+// @include     http://raspberrypi.local:8000/*.png
 // @version     1
 // @require  http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js
 // @grant       none
